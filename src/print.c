@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:55:02 by alisharu          #+#    #+#             */
-/*   Updated: 2025/01/30 20:39:22 by alisharu         ###   ########.fr       */
+/*   Created: 2025-03-27 13:32:34 by alisharu          #+#    #+#             */
+/*   Updated: 2025-03-27 13:32:34 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
-static int	ft_strlen(char *str)
+void	print_list(t_stack **list)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_putstr(char *s)
-{
-	int	len;
-
-	if (!s)
-		return (write (1, "(null)", 6));
-	len = ft_strlen(s);
-	return (write(1, s, len));
+	tmp = *list;
+	while (tmp != NULL)
+	{
+		printf("%d -> ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("NULL\n");
 }

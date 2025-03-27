@@ -1,38 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-03-27 12:45:18 by alisharu          #+#    #+#             */
+/*   Updated: 2025-03-27 12:45:18 by alisharu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
-void error_handling()
+void	error_handling(void)
 {
-    printf("Error\n");
+	printf("Error\n");
 }
 
-int push_swap(char *str)
+int	push_swap(char *str)
 {
-    int i = 0;
-    char **arr;
+	int		i;
+	char	**arr;
 
-    if (str[0] == '\0')
-    {
-        error_handling();
-        exit(ERROR_INVALID_INPUT);
-    }
-    arr = ft_split(str, ' ');  
-    while (arr[i] != NULL)
-    {
-        checking_argument(arr[i]);
-        i++;
-    }
-    ft_free_matrix(arr);
-    return 1;
+	i = 0;
+	if (str[0] == '\0')
+	{
+		error_handling();
+		exit(ERROR_INVALID_INPUT);
+	}
+	arr = ft_split(str, ' ');
+	while (arr[i] != NULL)
+	{
+		checking_argument(arr[i]);
+		i++;
+	}
+	ft_free_matrix(arr);
+	return (1);
 }
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-    int i;
-    t_stack *head;
+	// t_stack	*a;
+	// t_stack	*b;
+	int		i;
+	t_stack	*head;
 
-    i = 1;
-    if (argc == 1)
-        return (0);
+	i = 1;
+	if (argc == 1)
+		return (0);
 
     while (i < argc)
     {
@@ -93,6 +107,15 @@ for(int i = 0; i < size; i++)
 }
 
 printf("\n");
+
+sort_three(&last);
+tmp = last;
+printf("sort tree list....");
+for(int i = 0; i < size; i++)
+{
+    printf("%d, ", tmp -> index);
+    tmp = tmp -> next; 
+}
 
 
 
