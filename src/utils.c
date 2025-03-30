@@ -1,23 +1,24 @@
 
 #include "push_swap.h"
 
-int ft_list_size(t_stack **list)
+int	ft_list_size(t_stack **list)
 {
-    int count;
-    t_stack *tmp;
+	int count;
+	t_stack *tmp;
 
-    tmp = *list;
-    count = 0;
-    if(tmp == NULL)
-        return (0);
+	tmp = *list;
+	if (tmp == NULL)
+		return (0);
 
+	count = 0;
 	while (tmp != NULL)
 	{
 		count++;
-		tmp = tmp -> next;
+		tmp = tmp->next;
 	}
 	return (count);
 }
+
 
 t_stack	*ft_new_list(int content)
 {
@@ -73,7 +74,7 @@ int find_min_pos(t_stack **list)
 
 void	min_pos_rev(t_stack **list)
 {
-    int min_pos;
+	int	min_pos;
 
     min_pos = find_min_pos(list);
     if (min_pos == 0)
@@ -89,8 +90,8 @@ void	min_pos_rev(t_stack **list)
         else
         {
             rra(list);
-            min_pos++;
-        }
-    }
+			min_pos++;
+		}
+	}
 }
 
