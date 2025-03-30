@@ -64,3 +64,12 @@ void	ft_arr_sort(int *arr, int size)
 		i++;
 	}
 }
+
+void	pxik(t_stack **a, t_stack **b, int size)
+{
+	while (*b != NULL)
+	{
+		find_max_and_push_a(a, b, size);
+		size--;
+	}
+}

@@ -19,25 +19,17 @@ void	checking_argument(char *arg)
 
 	num = 0;
 	if (arg[0] == '\0')
-	{
 		error_handling();
-		exit(ERROR_INVALID_INPUT);
-	}
 	if ((arg[0] == '0') && (arg[1] == '\0'))
 		return ;
 	num = ft_atoi(arg);
 	if (num == 0)
-	{
 		error_handling();
-		exit(ERROR_INVALID_INPUT);
-	}
-	printf("%d\n",num);
 	itoa_num = ft_itoa(num);
 	if (ft_strcmp(arg, itoa_num) != 0)
 	{
 		free(itoa_num);
 		error_handling();
-		exit(ERROR_INVALID_INPUT);
 	}
 	free(itoa_num);
 }
@@ -52,9 +44,9 @@ int	checking_list(t_stack **list, int content)
 		if (tmp->content == content)
 		{
 			ft_free_stack(*list);
-			return (0);
+			error_handling();
 		}
-		tmp = tmp->next;
+		tmp = tmp->next; // heap-use-after-free
 	}
 	return (1);
 }
@@ -65,6 +57,8 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str)
 	int		i;
 
 	arr = ft_split(str, ' ');
+	if (arr == NULL)
+		error_handling();
 	i = 0;
 	while (arr[i] != NULL)
 	{
@@ -72,7 +66,6 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str)
 		{
 			ft_free_matrix(arr);
 			error_handling();
-			exit(ERROR_INVALID_INPUT);
 		}
 		ft_add_back_list(&head, ft_atoi(arr[i]));
 		i++;
@@ -81,26 +74,29 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str)
 	return (head);
 }
 
-void init_indexs_list(t_stack **list, int *arr, int size)
+void	init_indexs_list(t_stack **list, int *arr, int size)
 {
-    int i;
-    t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
-    ft_arr_sort(arr, size);
-
-    tmp = *list;
-    while (tmp != NULL)
-    {
-        for (i = 0; i < size; i++){
-            if (tmp->content == arr[i])
-            {
-                tmp->index = i;
-                break;
-            }
-        }
-        tmp = tmp->next;
-    }
-} 
+	ft_arr_sort(arr, size);
+	tmp = *list;
+	while (tmp != NULL)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tmp->content == arr[i])
+			{
+				tmp->index = i;
+				break ;
+			}
+			i++;
+		}
+		tmp = tmp->next;
+	}
+	free(arr);
+}
 
 void	ft_add_back_list(t_stack **lst, int content)
 {
@@ -121,17 +117,4 @@ void	ft_add_back_list(t_stack **lst, int content)
 	if (tmp != NULL)
 		tmp -> next = new_node;
 }
-
-int	is_sorted(t_stack **list)
-{
-	t_stack *tmp;
-
-	tmp = *list;
-	while (tmp -> next != NULL)
-	{
-		if (tmp -> content > tmp->next -> content)
-			return (0);
-		tmp = tmp -> next;
-	}
-	return (1);
-}
+ 

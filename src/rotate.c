@@ -13,52 +13,43 @@
 
 void	ra(t_stack **list)
 {
-	t_stack *first;
-    t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
-    if (!*list || !(*list)->next)
-        return ;
-    first = *list;
-    *list = (*list)->next;
-    if (*list == NULL)
-        return;
+	if (!*list || !(*list)->next)
+		return ;
+	first = *list;
+	*list = (*list)->next;
+	if (*list == NULL)
+		return ;
 
-    last = first;
-    while (last->next != NULL)
-        last = last->next;
+	last = first;
+	while (last->next != NULL)
+		last = last->next;
 
-    first->next = NULL;
-    last->next = first;
+	first->next = NULL;
+	last->next = first;
 }
 
 void	rb(t_stack **list)
 {
-	t_stack *first;
-    t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
-    if (!*list || !(*list)->next)
-        return ;
-    first = *list;
-    *list = (*list)->next;
-    if (*list == NULL)
-        return;
+	if (!*list || !(*list)->next)
+		return ;
+	first = *list;
+	*list = (*list)->next;
+	if (*list == NULL)
+		return ;
 
-    last = first;
-    while (last->next != NULL)
-        last = last->next;
+	last = first;
+	while (last->next != NULL)
+		last = last->next;
 
-    first->next = NULL;
-    last->next = first;
+	first->next = NULL;
+	last->next = first;
 }
-
-/*
-1 -> 2 -> NULL
-list = 2
-first = 1 -> null
-last = 1
-
-
-*/
 
 void	rr(t_stack **a, t_stack **b)
 {

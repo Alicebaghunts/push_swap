@@ -17,6 +17,20 @@ void	error_handling(void)
 	printf("Error\n");
 }
 
+int	is_sorted(t_stack **list)
+{
+	t_stack	*tmp;
+
+	tmp = *list;
+	while (tmp -> next != NULL)
+	{
+		if (tmp -> content > tmp->next -> content)
+			return (0);
+		tmp = tmp -> next;
+	}
+	return (1);
+}
+
 int	push_swap(char *str)
 {
 	int		i;
@@ -24,10 +38,7 @@ int	push_swap(char *str)
 
 	i = 0;
 	if (str[0] == '\0')
-	{
 		error_handling();
-		exit(ERROR_INVALID_INPUT);
-	}
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{

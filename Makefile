@@ -12,7 +12,7 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Iincludes #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Iincludes -g3 -fsanitize=address
 
 RM = rm -rf
 

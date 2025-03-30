@@ -9,7 +9,6 @@
 /*   Updated: 2025-03-27 13:32:34 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	print_list(t_stack **list)
@@ -25,28 +24,29 @@ void	print_list(t_stack **list)
 	printf("NULL\n");
 }
 
-void print_stack(t_stack **stack)
+void	print_stack(t_stack **stack)
 {
-    t_stack *tmp;
-	
-    tmp = *stack;
-    while (tmp)
-    {
-        printf("%d ", tmp->content);
-        tmp = tmp->next;
-    }
-    printf("\n");
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		printf("%d ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
 }
 
-void print_index(t_stack **list)
+void	print_index(t_stack **list)
 {
 	t_stack	*temp;
 
 	temp = *list;
-    while (temp)
+	while (temp)
 	{
-        printf("%d ", temp -> index);
-        temp = temp->next;
-    }
-    printf("\n");
+		printf("%d ", temp->index);
+		temp = temp->next;
+	}
+	printf("\n");
 }
+
