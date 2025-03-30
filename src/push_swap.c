@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-27 12:45:18 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-27 12:45:18 by alisharu         ###   ########.fr       */
+/*   Created: 2025/03/27 12:45:18 by alisharu          #+#    #+#             */
+/*   Updated: 2025/03/28 17:09:35 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	error_handling(void)
@@ -39,14 +40,19 @@ int	push_swap(char *str)
 
 int main(int argc, char **argv)
 {
-	// t_stack	*a;
-	// t_stack	*b;
-	int		i;
-	t_stack	*head;
+    t_stack *a;
+    t_stack *b;
+    int i;
+    int *arr;
+    int size;
+    // int n = 2;
 
-	i = 1;
-	if (argc == 1)
-		return (0);
+    a = NULL;
+    b = NULL;
+    i = 1;
+
+    if (argc == 1)
+        return (0);
 
     while (i < argc)
     {
@@ -54,83 +60,57 @@ int main(int argc, char **argv)
         i++;
     }
 
-    head = NULL;
     i = 1;
     while (i < argc)
     {
-        head = add_and_check_dublicate(head, argv[i]);
+        a = add_and_check_dublicate(a, argv[i]);
         i++;
     }
-t_stack * last = head;
-// 2 list
-t_stack *list2 = malloc(sizeof(t_stack));
-list2->content = 10;
-list2->next = NULL;
 
-for (int i = 1; i < 6; i++) {
-    ft_add_back_list(&list2, i + 10);
-}
+    if (is_sorted(&a))
+        return (0);
 
-printf("a ....");
-print_list(&last);
-printf("\n");
-int *arr = list_to_arr(&last);
-int size = ft_list_size(&last);
-printf("arr elems ....");
-for(int i = 0; i < size; i++)
-{
-    printf("%d, ", arr[i]);
-}
+    size = ft_list_size(&a);
+    arr = list_to_arr(&a);
 
-printf("\n");
-printf("\n");
+    init_indexs_list(&a, arr, size);
+	
+	printf("index - ");
+	print_index(&a);
+    printf("\n");
 
-ft_arr_sort(arr,size);
-printf("sort arr elems ....");
-for(int i = 0; i < size; i++)
-{
-    printf("%d, ", arr[i]);
-}
-printf("\n");
+    printf("Original a stack: ");
+    print_stack(&a);
+    printf("Original b stack: ");
+    print_stack(&b); 
+    printf("\n");
 
-
-printf("\n");
-
-init_indexs_list(&last,arr,size);
-t_stack *tmp = last;
-printf("index list....");
-for(int i = 0; i < size; i++)
-{
-    printf("%d, ", tmp -> index);
-    tmp = tmp -> next; 
-
-}
-
-printf("\n");
-
-sort_three(&last);
-tmp = last;
-printf("sort tree list....");
-for(int i = 0; i < size; i++)
-{
-    printf("%d, ", tmp -> index);
-    tmp = tmp -> next; 
-}
+	if (argc == 3)
+		sort_two(&a);
+	else if (argc == 4)
+		sort_three(&a);
+	else if (argc == 5)
+		sort_four(&a,&b);
+	else if (argc == 6)
+		sort_five(&a,&b);
+	else
+	{
+		make_butterfly(&a, &b, 1);
+	}
+	printf("Result a stack: ");
+    print_stack(&a);
+    printf("Result b stack: ");
+    print_stack(&b); 
+	printf("\n");
 
 
+    pxik(&a, &b, size);
 
-// printf("Before sa_sb on list2 and last:\n");
-// printf("a ");
-// print_list(&last);
-// printf("b ");
-// print_list(&list2);
-
-// rrr(&list2, &last);
-
-// printf("After sa_sb on list2 and last:\n");
-// printf("a ");
-// print_list(&last);
-// printf("b ");
-// print_list(&list2);
+    t_stack *tmp = a;
+    printf("Result a stack: ");
+    print_stack(&tmp);
+    printf("Result b stack: ");
+    print_stack(&b); 
+	printf("\n");
     return (0);
 }

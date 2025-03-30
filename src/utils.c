@@ -1,17 +1,5 @@
+
 #include "push_swap.h"
-
-void print_list(t_stack **list)
-{
-    t_stack *tmp;
-
-    tmp = *list;
-    while (tmp != NULL)
-    {
-        printf ("%d -> ", tmp->content);
-        tmp = tmp -> next;
-    }
-    printf("NULL\n");
-}
 
 int ft_list_size(t_stack **list)
 {
@@ -23,89 +11,86 @@ int ft_list_size(t_stack **list)
     if(tmp == NULL)
         return (0);
 
-    while (tmp != NULL)
-    {
-        count++;
-        tmp = tmp -> next;
-    }
-    return count;
+	while (tmp != NULL)
+	{
+		count++;
+		tmp = tmp -> next;
+	}
+	return (count);
+}
+
+t_stack	*ft_new_list(int content)
+{
+	t_stack	*new_node;
+
+	new_node = malloc(sizeof(t_stack));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 
 
-int *list_to_arr(t_stack **list)
+t_stack	*ft_last_node(t_stack *lst)
 {
-    int size;
-    int *arr;
-    int i;
-    t_stack *temp;
+	t_stack	*tmp;
 
-    temp = *list;
-    if(list == NULL || *list == NULL)
-        return (NULL);
-
-    size = ft_list_size(list);
-    arr = malloc(sizeof(int) * size);
-
-    if (arr == NULL)
-        exit(ERROR_MEMORY_ALLOCATION);
-
-    i = 0;
-    while (temp != NULL)
-    {
-        arr[i] = temp -> content;
-        temp= temp -> next;
-        i++;
-    }
-    return arr;
+	tmp = lst;
+	if (lst == NULL)
+		return (NULL);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp);
 }
 
-void ft_arr_sort(int *arr, int size)
+int find_min_pos(t_stack **list)
 {
-    int i, j, temp;
-    int swapped;
-    i = 0;
-
-    while (i < size - 1) {
-        swapped = 0;
-        j = 0;
-
-        while (j < size - i - 1) {
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = 1;
-            }
-            j++;
-        }
-
-        if (swapped == 0) {
-            break;
-        }
-
-        i++;
-    }
-}
-
-void    init_indexs_list(t_stack **list, int* arr, int size)
-{
-    int index;
     t_stack *tmp;
+    int min;
+    int pos;
+    int min_pos;
 
+    if (*list == NULL)
+        return (-1);
+
+    min = (*list)->content;
+    pos = 0;
+    min_pos = 0;
     tmp = *list;
-    index = 0;
-
-    while (tmp != NULL)
+    while (tmp)
     {
-        index = 0;
-        while (index < size)
+        if (tmp->content < min)
         {
-            if (tmp -> content == arr[index])
-            {
-                tmp -> index = index;
-            }
-            index++;
+            min = tmp->content;
+            min_pos = pos;
         }
-        tmp = tmp -> next;
+        tmp = tmp->next;
+        pos++;
     }
-}   
+    return (min_pos);
+}
+
+void	min_pos_rev(t_stack **list)
+{
+    int min_pos;
+
+    min_pos = find_min_pos(list);
+    if (min_pos == 0)
+        return;
+
+    while (min_pos != 0)
+    {
+        if (min_pos > 0)
+        {
+            ra(list);
+            min_pos--;
+        }
+        else
+        {
+            rra(list);
+            min_pos++;
+        }
+    }
+}
+

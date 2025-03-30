@@ -13,45 +13,52 @@
 
 void	ra(t_stack **list)
 {
-	t_stack	*start;
-	t_stack	*end;
-	t_stack	*tmp;
+	t_stack *first;
+    t_stack *last;
 
-	start = *list;
-	end = *list;
-	if (*list == NULL || (*list)->next == NULL)
-		return ;
-	while (end->next != NULL)
-	{
-		tmp = end;
-		end = end->next;
-	}
-	tmp->next = start;
-	end->next = start->next;
-	start->next = NULL;
-	*list = end;
+    if (!*list || !(*list)->next)
+        return ;
+    first = *list;
+    *list = (*list)->next;
+    if (*list == NULL)
+        return;
+
+    last = first;
+    while (last->next != NULL)
+        last = last->next;
+
+    first->next = NULL;
+    last->next = first;
 }
 
 void	rb(t_stack **list)
 {
-	t_stack	*start;
-	t_stack	*end;
-	t_stack	*tmp;
+	t_stack *first;
+    t_stack *last;
 
-	if (*list == NULL || (*list)->next == NULL)
-		return ;
-	start = *list;
-	end = *list;
-	while (end->next != NULL)
-	{
-		tmp = end;
-		end = end->next;
-	}
-	tmp->next = start;
-	end->next = start->next;
-	start->next = NULL;
-	*list = end;
+    if (!*list || !(*list)->next)
+        return ;
+    first = *list;
+    *list = (*list)->next;
+    if (*list == NULL)
+        return;
+
+    last = first;
+    while (last->next != NULL)
+        last = last->next;
+
+    first->next = NULL;
+    last->next = first;
 }
+
+/*
+1 -> 2 -> NULL
+list = 2
+first = 1 -> null
+last = 1
+
+
+*/
 
 void	rr(t_stack **a, t_stack **b)
 {

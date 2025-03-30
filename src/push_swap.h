@@ -57,5 +57,15 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str);
 void	rotate_to_max(t_stack **a, int i, int size);
 void	rotate_to_max_b(t_stack **b, int i, int size);
 void	sort_three(t_stack **list);
+void	print_stack(t_stack **list);
+void	sort_two(t_stack **list);
+int		is_sorted(t_stack **list);
+int		find_min_pos(t_stack **list);
+void	sort_four(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
+void min_pos_rev(t_stack **list);
+void pxik(t_stack **a, t_stack **b, int size);
+void print_index(t_stack **list);
+
 
 #endif

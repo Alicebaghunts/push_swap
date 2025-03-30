@@ -18,10 +18,10 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		if (n == -2147483648)
 		{
-			ft_putstr_fd("-2147483648", fd);
+			ft_putstr("-2147483648");
 			return ;
 		}
-		ft_putchar_fd('-', fd);
+		ft_putchar('-');
 		n = -n;
 	}
 	if (n / 10)
@@ -30,5 +30,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		ft_putchar_fd('0' + n, fd);
+		ft_putchar('0' + n);
 }

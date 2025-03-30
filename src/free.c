@@ -1,50 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-27 12:56:57 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-27 12:56:57 by alisharu         ###   ########.fr       */
+/*   Created: 2025/03/27 12:44:09 by alisharu          #+#    #+#             */
+/*   Updated: 2025/03/28 17:14:59 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	ft_list_size(t_stack **list)
+void	ft_free_matrix(char **arr)
 {
-	int		count;
-	t_stack	*tmp;
+	int	i;
 
-	tmp = *list;
-	count = 0;
-	if (tmp == NULL)
-		return (0);
-	while (tmp != NULL)
+	i = 0;
+	while (arr[i] != NULL)
 	{
-		count++;
-		tmp = tmp->next;
+		free(arr[i]);
+		i++;
 	}
-	return (count);
+	free(arr);
 }
 
-void	init_indexs_list(t_stack **list, int *arr, int size)
+void	ft_free_stack(t_stack *stack)
 {
-	int		index;
-	t_stack	*tmp;
+	t_stack	*temp;
 
-	tmp = *list;
-	index = 0;
-	while (tmp != NULL)
+	while (stack != NULL)
 	{
-		index = 0;
-		while (index < size)
-		{
-			if (tmp->content == arr[index])
-				tmp->index = index;
-			index++;
-		}
-		tmp = tmp->next;
+		temp = stack;
+		stack = stack->next;
+		free(temp);
 	}
 }
 
