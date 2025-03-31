@@ -65,6 +65,23 @@ void	ft_arr_sort(int *arr, int size)
 	}
 }
 
+int	optimaizer(int size)
+{
+	int	sqrt;
+	int	log;
+
+	sqrt = 1;
+	log = 0;
+	while (sqrt < size / sqrt)
+		sqrt++;
+	while (size)
+	{
+		size /= 2;
+		log++;
+	}
+	return (sqrt + log - 1);
+}
+
 void	pxik(t_stack **a, t_stack **b, int size)
 {
 	while (*b != NULL)

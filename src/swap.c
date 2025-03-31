@@ -23,6 +23,7 @@ void	sa(t_stack **list)
 	*list = swp2;
 	swp1->next = swp2->next;
 	swp2->next = swp1;
+	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **list)
@@ -37,6 +38,7 @@ void	sb(t_stack **list)
 	*list = swp2;
 	swp1->next = swp2->next;
 	swp2->next = swp1;
+	ft_putstr("sb\n");
 }
 
 void	ss(t_stack **a, t_stack **b)
@@ -45,4 +47,5 @@ void	ss(t_stack **a, t_stack **b)
 		sa(a);
 	if (*b != NULL && (*b)->next != NULL)
 		sb(b);
+	ft_putstr("ss\n");
 }

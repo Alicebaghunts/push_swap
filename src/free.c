@@ -37,19 +37,6 @@ void	ft_free_stack(t_stack *stack)
 	}
 }
 
-int	generate_chunk(int size)
-{
-	int	chunk_size;
-
-	if (size <= 50)
-		chunk_size = 5;
-	else if (size <= 100)
-		chunk_size = 10;
-	else
-		chunk_size = 20;
-	return (chunk_size);
-}
-
 void	sort_stack(t_stack **a, t_stack **b)
 {
 	while (*b != NULL)

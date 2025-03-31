@@ -23,7 +23,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	butterfly_algo(t_stack **a, t_stack **b, int size);
 void	error_handling(void);
 void	find_max_and_push_a(t_stack **a, t_stack **b, int size);
 void	find_max_and_push_b(t_stack **a, t_stack **b, int size);
@@ -65,5 +64,6 @@ void	print_index(t_stack **list);
 t_stack	*ft_last_node(t_stack *lst);
 t_stack	*ft_new_list(int content);
 t_stack	*add_and_check_dublicate(t_stack *head, char *str);
+int		optimaizer(int size);
 
 #endif

@@ -46,7 +46,7 @@ int	checking_list(t_stack **list, int content)
 			ft_free_stack(*list);
 			error_handling();
 		}
-		tmp = tmp->next; // heap-use-after-free
+		tmp = tmp->next;
 	}
 	return (1);
 }
@@ -117,4 +117,3 @@ void	ft_add_back_list(t_stack **lst, int content)
 	if (tmp != NULL)
 		tmp -> next = new_node;
 }
- 

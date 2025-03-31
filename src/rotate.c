@@ -22,13 +22,12 @@ void	ra(t_stack **list)
 	*list = (*list)->next;
 	if (*list == NULL)
 		return ;
-
 	last = first;
 	while (last->next != NULL)
 		last = last->next;
-
 	first->next = NULL;
 	last->next = first;
+	ft_putstr("ra\n");
 }
 
 void	rb(t_stack **list)
@@ -42,13 +41,12 @@ void	rb(t_stack **list)
 	*list = (*list)->next;
 	if (*list == NULL)
 		return ;
-
 	last = first;
 	while (last->next != NULL)
 		last = last->next;
-
 	first->next = NULL;
 	last->next = first;
+	ft_putstr("rb\n");
 }
 
 void	rr(t_stack **a, t_stack **b)
@@ -57,4 +55,5 @@ void	rr(t_stack **a, t_stack **b)
 		ra(a);
 	if (*b != NULL && (*b)->next != NULL)
 		rb(b);
+	ft_putstr("rr\n");
 }

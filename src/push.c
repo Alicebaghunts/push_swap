@@ -34,4 +34,5 @@ void	pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	temp->next = *b;
 	*b = temp;
+	ft_putstr("pb\n");
 }

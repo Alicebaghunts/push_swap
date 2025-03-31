@@ -38,14 +38,22 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-char    *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-    size_t len = ft_strlen(s);
-    char *new_str = (char *)malloc(len + 1);
-    if (!new_str)
-        return NULL;
-    for (size_t i = 0; i < len; i++)
-        new_str[i] = s[i];
-    new_str[len] = '\0';
-    return new_str;
+	size_t	len;
+	char	*new_str;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(s);
+	new_str = (char *)malloc(len + 1);
+	if (!new_str)
+		return (NULL);
+	while (i < len)
+	{
+		new_str[i] = s[i];
+		i++;
+	}
+	new_str[len] = '\0';
+	return (new_str);
 }

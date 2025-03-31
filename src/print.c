@@ -49,4 +49,3 @@ void	print_index(t_stack **list)
 	}
 	printf("\n");
 }
-

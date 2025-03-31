@@ -15,6 +15,7 @@
 void	error_handling(void)
 {
 	printf("Error\n");
+	exit(ERROR_INVALID_INPUT);
 }
 
 int	is_sorted(t_stack **list)
@@ -49,79 +50,47 @@ int	push_swap(char *str)
 	return (1);
 }
 
-int main(int argc, char **argv)
+void	sort(t_stack *a, t_stack *b)
 {
-    t_stack *a;
-    t_stack *b;
-    int i;
-    int *arr;
-    int size;
-    // int n = 2;
+	int		*arr;
+	int		size;
 
-    a = NULL;
-    b = NULL;
-    i = 1;
-
-    if (argc == 1)
-        return (0);
-
-    while (i < argc)
-    {
-        push_swap(argv[i]);
-        i++;
-    }
-
-    i = 1;
-    while (i < argc)
-    {
-        a = add_and_check_dublicate(a, argv[i]);
-        i++;
-    }
-
-    if (is_sorted(&a))
-        return (0);
-
-    size = ft_list_size(&a);
-    arr = list_to_arr(&a);
-
-    init_indexs_list(&a, arr, size);
-	
-	printf("index - ");
-	print_index(&a);
-    printf("\n");
-
-    printf("Original a stack: ");
-    print_stack(&a);
-    printf("Original b stack: ");
-    print_stack(&b); 
-    printf("\n");
-
-	if (argc == 3)
+	size = ft_list_size(&a);
+	arr = list_to_arr(&a);
+	init_indexs_list(&a, arr, size);
+	if (size == 2)
 		sort_two(&a);
-	else if (argc == 4)
+	else if (size == 3)
 		sort_three(&a);
-	else if (argc == 5)
-		sort_four(&a,&b);
-	else if (argc == 6)
-		sort_five(&a,&b);
+	else if (size == 4)
+		sort_four(&a, &b);
+	else if (size == 5)
+		sort_five(&a, &b);
 	else
-	{
-		make_butterfly(&a, &b, 1);
-	}
-	printf("Result a stack: ");
-    print_stack(&a);
-    printf("Result b stack: ");
-    print_stack(&b); 
-	printf("\n");
+		make_butterfly(&a, &b, optimaizer(size));
+}
 
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		i;
 
-    pxik(&a, &b, size);
-
-    t_stack *tmp = a;
-    printf("Result a stack: ");
-    print_stack(&tmp);
-    printf("Result b stack: ");
-    print_stack(&b); 
-	printf("\n");
-    return (0);
+	a = NULL;
+	b = NULL;
+	i = 1;
+	if (argc == 1)
+		return (0);
+	while (i < argc)
+		push_swap(argv[i++]);
+	i = 1;
+	while (i < argc)
+		a = add_and_check_dublicate(a, argv[i++]);
+	if (is_sorted(&a))
+		return (ft_free_stack(a), 0);
+	sort(a, b);
+	pxik(&a, &b, ft_list_size(&a));
+	ft_free_stack(b);
+	ft_free_stack(a);
+	return (0);
 }

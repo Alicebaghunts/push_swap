@@ -99,4 +99,3 @@ void	make_butterfly(t_stack **a, t_stack **b, int n)
 			ra(a);
 	}
 }
-

@@ -30,6 +30,7 @@ void	rra(t_stack **list)
 	end->next = start;
 	tmp->next = NULL;
 	*list = end;
+	ft_putstr("rra\n");
 }
 
 void	rrb(t_stack **list)
@@ -51,6 +52,7 @@ void	rrb(t_stack **list)
 	end->next = start;
 	tmp->next = NULL;
 	*list = end;
+	ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack **a, t_stack **b)
@@ -59,4 +61,5 @@ void	rrr(t_stack **a, t_stack **b)
 		rra(a);
 	if (*b != NULL && (*b)->next != NULL)
 		rrb(b);
+	ft_putstr("rrr\n");
 }

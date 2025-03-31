@@ -13,36 +13,29 @@
 
 void	sort_three(t_stack **list)
 {
-	int	first;
-	int	second;
-	int	third;
+	int	a;
+	int	b;
+	int	c;
 
-	first = (*list)->content;
-	second = (*list)->next->content;
-	third = (*list)->next->next->content;
-	if (first < second && second < third)
-		return ;
-	if (first > second && second < third && first < third)
+	a = (*list)->index;
+	b = (*list)->next->index;
+	c = (*list)->next->next->index;
+	if (a > b && a < c)
 		sa(list);
-	else if (first > second && first > third && third < second)
-	{
-		ra(list);
-		sa(list);
-	}
-	else if (first > second && second < third && first > third)
-		ra(list);
-	else if (first < second && second > third && third > first)
-	{
+	else if (a < b && a > c)
 		rra(list);
+	else if (a > b && a > c && b < c)
+		ra(list);
+	else if (a > b && a > c && b > c)
+	{
 		sa(list);
+		rra(list);
 	}
-	else if (first < second && first < third && second > third)
+	else if (a < b && a < c && b > c)
 	{
 		sa(list);
 		ra(list);
 	}
-	else if (first < second && first > third && second > third)
-		rra(list);
 }
 
 void	sort_two(t_stack **list)
