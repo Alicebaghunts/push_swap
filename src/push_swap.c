@@ -50,30 +50,26 @@ int	push_swap(char *str)
 	return (1);
 }
 
-void	sort(t_stack *a, t_stack *b)
+void	sort(t_stack **a, t_stack **b, int size)
 {
-	int		*arr;
-	int		size;
-
-	size = ft_list_size(&a);
-	arr = list_to_arr(&a);
-	init_indexs_list(&a, arr, size);
 	if (size == 2)
-		sort_two(&a);
+		sort_two(a);
 	else if (size == 3)
-		sort_three(&a);
+		sort_three(a);
 	else if (size == 4)
-		sort_four(&a, &b);
+		sort_four(a, b);
 	else if (size == 5)
-		sort_five(&a, &b);
+		sort_five(a, b);
 	else
-		make_butterfly(&a, &b, optimaizer(size));
+		make_butterfly(a, b, optimaizer(size));
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		*arr;
+	int		size;
 	int		i;
 
 	a = NULL;
@@ -88,9 +84,10 @@ int	main(int argc, char **argv)
 		a = add_and_check_dublicate(a, argv[i++]);
 	if (is_sorted(&a))
 		return (ft_free_stack(a), 0);
-	sort(a, b);
-	pxik(&a, &b, ft_list_size(&a));
-	ft_free_stack(b);
-	ft_free_stack(a);
-	return (0);
+	size = ft_list_size(&a);
+	arr = list_to_arr(&a);
+	init_indexs_list(&a, arr, size);
+	sort(&a, &b, size);
+	pxik(&a, &b, size);
+	return (ft_free_stack(b), ft_free_stack(a), 0);
 }

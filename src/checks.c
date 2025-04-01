@@ -23,8 +23,6 @@ void	checking_argument(char *arg)
 	if ((arg[0] == '0') && (arg[1] == '\0'))
 		return ;
 	num = ft_atoi(arg);
-	if (num == 0)
-		error_handling();
 	itoa_num = ft_itoa(num);
 	if (ft_strcmp(arg, itoa_num) != 0)
 	{
@@ -65,6 +63,7 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str)
 		if (checking_list(&head, ft_atoi(arr[i])) == 0)
 		{
 			ft_free_matrix(arr);
+			ft_free_stack(head);
 			error_handling();
 		}
 		ft_add_back_list(&head, ft_atoi(arr[i]));
