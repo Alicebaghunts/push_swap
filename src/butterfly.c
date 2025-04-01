@@ -9,7 +9,6 @@
 /*   Updated: 2025-03-30 14:52:45 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	rotate_to_max(t_stack **a, int i, int size)
