@@ -31,10 +31,12 @@ RESET			= \033[0m
 BLUE			= \033[34m
 CYAN			= \033[36m
 YELLOW			= \033[38;2;255;239;0m
+PINK			= \033[38;2;255;105;180m
+RED				= \033[31m
 
 
 %.o : %.c $(HEADER) Makefile
-	@echo "${CYAN} Compiling $<${RESET}"
+	@echo "${CYAN}🔨 Compiling $<${RESET}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
@@ -47,7 +49,7 @@ clean:
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "${BLUE} Removing ${NAME} ${RESET}"
+	@echo "${RED} Removing ${NAME} ${RESET}"
 	@$(RM) $(NAME)
 
 re: fclean all
