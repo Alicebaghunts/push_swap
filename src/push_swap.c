@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 22:45:14 by alice             #+#    #+#             */
-/*   Updated: 2025/04/01 22:45:17 by alice            ###   ########.fr       */
+/*   Created: 2025-04-02 10:24:39 by alisharu          #+#    #+#             */
+/*   Updated: 2025-04-02 10:24:39 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	error_handling(void)

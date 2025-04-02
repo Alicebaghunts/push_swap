@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-27 13:02:10 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-27 13:02:10 by alisharu         ###   ########.fr       */
+/*   Created: 2025-04-02 10:25:17 by alisharu          #+#    #+#             */
+/*   Updated: 2025-04-02 10:25:17 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 

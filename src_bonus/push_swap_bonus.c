@@ -1,83 +1,50 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-04-02 15:21:47 by alisharu          #+#    #+#             */
+/*   Updated: 2025-04-02 15:21:47 by alisharu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap_bonus.h"
-#include "../src/push_swap.h"
 
-int	strcmp_check(char *s1, char *s2)
+void	error_handling(void)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+	printf("Error\n");
+	exit(ERROR_INVALID_INPUT);
 }
 
-int	exec_instruction(t_stack **a, t_stack **b, char *input)
+int	is_sorted(t_stack **list)
 {
-	if (strcmp_check(input, "sa\n") == 0)
-		sa(a);
-	else if (strcmp_check(input, "sb\n") == 0)
-		sb(b);
-	else if (strcmp_check(input, "ss\n") == 0)
-		ss(a, b);
-	else if (strcmp_check(input, "pa\n") == 0)
-		pa(a, b);
-	else if (strcmp_check(input, "pb\n") == 0)
-		pb(a, b);
-	else if (strcmp_check(input, "ra\n") == 0)
-		ra(a);
-	else if (strcmp_check(input, "rb\n") == 0)
-		rb(b);
-	else if (strcmp_check(input, "rra\n") == 0)
-		rra(a);
-	else if (strcmp_check(input, "rrb\n") == 0)
-		rrb(b);
-	else
+	t_stack	*tmp;
+
+	tmp = *list;
+	while (tmp -> next != NULL)
 	{
-		free(input);
-		return (0);
+		if (tmp -> content > tmp->next -> content)
+			return (0);
+		tmp = tmp -> next;
 	}
-	free(input);
 	return (1);
 }
 
-void	read_from_stdin(t_stack **a, t_stack **b)
+int	push_swap(char *str)
 {
-	char	*input;
-
-	input = get_next_line(0);
-	while (input)
-	{
-		if (exec_instruction(a, b, input) == 0)
-			error_handling();
-		input = get_next_line(0);
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
 	int		i;
+	char	**arr;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (0);
-	i = 1;
-	while (i < argc)
-		push_swap(argv[i++]);
-	i = 1;
-	while (i < argc)
-		a = add_and_check_dublicate(a, argv[i++]);
-	read_from_stdin(&a, &b);
-	if (is_sorted(&a) && !b)
-		ft_putstr("OK\n");
-	else
-		ft_putstr("KO\n");
-	return (ft_free_stack(a), ft_free_stack(b), 0);
+	i = 0;
+	if (str[0] == '\0')
+		error_handling();
+	arr = ft_split(str, ' ');
+	while (arr[i] != NULL)
+	{
+		checking_argument(arr[i]);
+		i++;
+	}
+	ft_free_matrix(arr);
+	return (1);
 }

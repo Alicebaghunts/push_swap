@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 
 typedef struct s_list
 {
@@ -24,6 +30,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+void	error_handling(void);
 int		ft_isprint(int c);
 int		ft_isascii(int c);
 int		ft_isalnum(int c);
@@ -41,7 +48,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *line, char *buff);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -68,5 +75,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
+char	*ft_cut_str(char *line);
+char	*get_next_line(int fd);
+char	*new_line(char *line);
+char	*future_next_line(char *line);
+void	ft_get_line(int fd, char **line);
 
 #endif
