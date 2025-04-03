@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:17:43 by alisharu          #+#    #+#             */
-/*   Updated: 2025/02/05 16:37:30 by alisharu         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:17:51 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*future_next_line(char *line)
@@ -22,20 +23,12 @@ char	*future_next_line(char *line)
 	while (line[count] && line[count] != '\n')
 		count++;
 	if (!line[count])
-	{
-		free(line);
-		line = NULL;
-		return (NULL);
-	}
-	if(line == NULL)
+		return (free(line), line = NULL, NULL);
+	if (line == NULL)
 		return (0);
 	buffer = (char *)malloc(sizeof(char) * (ft_strlen(line) - count));
 	if (buffer == NULL)
-	{
-		free(line);
-		line = NULL;
-		return (NULL);
-	}
+		return (free(line), line = NULL, NULL);
 	while (line[++count])
 		buffer[i++] = line[count];
 	buffer[i] = '\0';

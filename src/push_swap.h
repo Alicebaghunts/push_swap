@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 10:25:17 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 10:25:17 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 10:25:17 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:14:29 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+void	is_space(char *str);
 void	error_handling(void);
 void	find_max_and_push_a(t_stack **a, t_stack **b, int size);
 void	find_max_and_push_b(t_stack **a, t_stack **b, int size);

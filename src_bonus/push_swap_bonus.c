@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 15:21:47 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 15:21:47 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 15:21:47 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:16:29 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	error_handling(void)
@@ -39,6 +40,7 @@ int	push_swap(char *str)
 	i = 0;
 	if (str[0] == '\0')
 		error_handling();
+	is_sorted(str);
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{

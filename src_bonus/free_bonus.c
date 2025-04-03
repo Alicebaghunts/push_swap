@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 10:12:19 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 10:12:19 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 10:12:19 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:13:54 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	ft_free_matrix(char **arr)

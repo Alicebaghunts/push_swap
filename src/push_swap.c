@@ -3,18 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 10:24:39 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 10:24:39 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 10:24:39 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:06:15 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	error_handling(void)
+void	is_space(char *str)
 {
-	printf("Error\n");
-	exit(ERROR_INVALID_INPUT);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] == ' ')
+		i++;
+	if (str[i] != '\0')
+		return ;
+	error_handling();
 }
 
 int	is_sorted(t_stack **list)
@@ -39,6 +46,7 @@ int	push_swap(char *str)
 	i = 0;
 	if (str[0] == '\0')
 		error_handling();
+	is_space(str);
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{

@@ -56,13 +56,13 @@ $(NAME): $(OBJS)
 	@echo "${PINK}💻 Compiling Push_Swap...${RESET}"
 	@$(MAKE) -C ./libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	@echo "${YELLOW}✨ Push_Swap Executable Created 🥑 ${RESET}"
+	@echo "${YELLOW}Push_Swap Executable Created ✨ ${RESET}"
 
 $(NAME_BONUS): $(OBJS_BONUS)
 	@echo "${VIOLET}💻 Compiling Checker...${RESET}"
 	@$(MAKE) -C ./libft
 	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
-	@echo "${YELLOW}✨ Checker Executable Created 🥑 ${RESET}"
+	@echo "${YELLOW}Checker Executable Created ✨ ${RESET}"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c Makefile
 	@echo "${CYAN}🔨  Compiling $<...${RESET}"
@@ -83,7 +83,7 @@ clean:
 	@$(RM) $(OBJS_DIR)
 
 fclean: clean
-	@echo "${RED}🔥 Removing Executable Files...${RESET}"
+	@echo "${RED}🧹 Removing Executable Files...${RESET}"
 	@$(MAKE) fclean -C ./libft
 	@$(RM) $(NAME)
 	@$(RM) $(NAME_BONUS)

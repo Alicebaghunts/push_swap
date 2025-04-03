@@ -3,13 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-27 13:32:34 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-27 13:32:34 by alisharu         ###   ########.fr       */
+/*   Created: 2025/03/27 13:32:34 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:06:51 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
+
+void	error_handling(void)
+{
+	printf("Error\n");
+	exit(ERROR_INVALID_INPUT);
+}
 
 void	print_list(t_stack **list)
 {

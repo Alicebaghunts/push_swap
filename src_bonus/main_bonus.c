@@ -1,15 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 10:12:38 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 10:12:38 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 10:12:38 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:15:29 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap_bonus.h"
+
+void	is_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] == ' ')
+		i++;
+	if (str[i] != '\0')
+		return ;
+	error_handling();
+}
 
 int	strcmp_check(char *s1, char *s2)
 {

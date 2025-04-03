@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 10:25:28 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 10:25:28 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 10:25:28 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 15:16:13 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
@@ -23,7 +24,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-
+void	is_space(char *str);
 int		strcmp_check(char *s1, char *s2);
 int		exec_instruction(t_stack **a, t_stack **b, char *input);
 void	read_from_stdin(t_stack **a, t_stack **b);//new bonusina

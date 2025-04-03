@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 18:16:02 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 18:16:02 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 18:16:02 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/03 01:28:59 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	checking_argument(char *arg)

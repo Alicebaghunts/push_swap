@@ -49,7 +49,7 @@ clean:
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "${RED} Removing ${NAME} ${RESET}"
+	@echo "${RED}🧹 Removing ${NAME} ${RESET}"
 	@$(RM) $(NAME)
 
 re: fclean all
