@@ -6,7 +6,7 @@
 /*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 14:07:00 by alisharu          #+#    #+#             */
-/*   Updated: 2025/04/03 15:10:43 by alice            ###   ########.fr       */
+/*   Updated: 2025/04/06 15:53:58 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -79,5 +80,6 @@ char	*get_next_line(int fd);
 char	*new_line(char *line);
 char	*future_next_line(char *line);
 void	ft_get_line(int fd, char **line);
+long	ft_atol(const char *str);
 
 #endif

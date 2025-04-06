@@ -6,7 +6,7 @@
 /*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:21:47 by alisharu          #+#    #+#             */
-/*   Updated: 2025/04/03 15:16:29 by alice            ###   ########.fr       */
+/*   Updated: 2025/04/06 15:58:28 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	push_swap(char *str)
 	i = 0;
 	if (str[0] == '\0')
 		error_handling();
-	is_sorted(str);
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{

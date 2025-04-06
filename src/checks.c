@@ -6,15 +6,16 @@
 /*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 18:16:02 by alisharu          #+#    #+#             */
-/*   Updated: 2025/04/03 01:28:59 by alice            ###   ########.fr       */
+/*   Updated: 2025/04/06 15:55:18 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	checking_argument(char *arg)
 {
-	int		num;
+	long	num;
 	char	*itoa_num;
 
 	num = 0;
@@ -22,8 +23,10 @@ void	checking_argument(char *arg)
 		error_handling();
 	if ((arg[0] == '0') && (arg[1] == '\0'))
 		return ;
-	num = ft_atoi(arg);
-	itoa_num = ft_itoa(num);
+	num = ft_atol(arg);
+	if (num > INT_MAX || num < INT_MIN)
+		error_handling();
+	itoa_num = ft_itoa((int)num);
 	if (ft_strcmp(arg, itoa_num) != 0)
 	{
 		free(itoa_num);
