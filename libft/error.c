@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 17:46:46 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-02 17:46:46 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/02 17:46:46 by alisharu          #+#    #+#             */
+/*   Updated: 2025/04/06 15:21:10 by alice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	error_handling(void)
 {
 	printf("Error\n");
-	exit(ERROR_INVALID_INPUT);
+	exit(1);
 }

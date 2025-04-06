@@ -2,9 +2,9 @@ MAKEFLAGS		= --no-print-directory
 
 NAME			=	push_swap
 NAME_BONUS		=	checker
-CC				=	clang
+CC				=	cc
 RM 				=	rm -rf
-CFLAGS			=	-Wall -Wextra -Werror -Iincludes -g3 -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror -Iincludes 
 LIBFT			= -L./libft -lft
 OBJS_DIR		=	objs
 SRCS_DIR		=	src
@@ -90,9 +90,5 @@ fclean: clean
 	@echo "${GOLD}✨ All Executables Removed! Everything is Clean! ✅ ${RESET}"
 
 re: fclean all
-
-test:
-	@echo "${MAGENTA}💥 Test Mode: Displaying Bonus Sources 📂...${RESET}"
-	@echo "${TURQUOISE}${SRC_BONUS}${RESET}"
 
 .PHONY: all clean build fclean re test bonus
