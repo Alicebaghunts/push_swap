@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alice <alice@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 15:21:47 by alisharu          #+#    #+#             */
-/*   Updated: 2025/04/06 15:58:28 by alice            ###   ########.fr       */
+/*   Created: 2025-04-06 13:46:44 by alisharu          #+#    #+#             */
+/*   Updated: 2025-04-06 13:46:44 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	is_sorted(t_stack **list)
 {
 	t_stack	*tmp;
 
+	if (!*list)
+		return (0);
 	tmp = *list;
 	while (tmp -> next != NULL)
 	{
