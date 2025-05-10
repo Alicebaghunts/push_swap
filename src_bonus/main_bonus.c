@@ -71,7 +71,12 @@ void	read_from_stdin(t_stack **a, t_stack **b)
 		if (!input)
 			break ;
 		if (exec_instruction(a, b, input) == 0)
+		{
+			free(input);
+			ft_free_stack(*a);
+			get_next_line(-1);
 			error_handling();
+		}
 		free(input);
 	}
 }
@@ -97,5 +102,7 @@ int	main(int argc, char **argv)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
-	return (ft_free_stack(a), ft_free_stack(b), 0);
+	ft_free_stack(a);
+	ft_free_stack(b);
+	return (0);
 }

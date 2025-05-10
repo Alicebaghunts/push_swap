@@ -80,19 +80,24 @@ int	find_min_pos(t_stack **list)
 
 void	min_pos_rev(t_stack **list)
 {
+	int	size;
 	int	min_pos;
 
 	min_pos = find_min_pos(list);
+	size = ft_list_size(list);
 	if (min_pos == 0)
 		return ;
-	while (min_pos != 0)
+	if (min_pos > 0 && min_pos <= size / 2)
 	{
-		if (min_pos > 0)
+		while (min_pos > 0)
 		{
 			ra(list);
 			min_pos--;
 		}
-		else
+	}
+	else
+	{
+		while (min_pos < 0)
 		{
 			rra(list);
 			min_pos++;

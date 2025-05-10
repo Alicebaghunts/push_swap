@@ -3,124 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 12:43:24 by alisharu          #+#    #+#             */
-/*   Updated: 2025/01/16 14:30:54 by alisharu         ###   ########.fr       */
+/*   Created: 2025-05-10 15:56:36 by alisharu          #+#    #+#             */
+/*   Updated: 2025-05-10 15:56:36 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static size_t	word_count(const char *str, char c)
 {
-	int	words;
-	int	i;
-
-	words = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (i == 0 && s[i] != c)
-			words++;
-		if (i > 0 && s[i] != c && s[i - 1] == c)
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-static char	**ft_malloc_strs(char **strs, const char *s, char c)
-{
-	int	count;
-	int	i;
-	int	x;
+	size_t	count;
 
 	count = 0;
-	i = 0;
-	x = 0;
-	while (s[i])
+	while (*str)
 	{
-		if (s[i] != c)
+		while (*str && *str == c)
+			str++;
+		if (*str)
 			count++;
-		if ((s[i] == c && i > 0 && s[i - 1] != c)
-			|| (s[i] != c && s[i + 1] == '\0'))
-		{
-			strs[x] = malloc(sizeof(char) * (count + 1));
-			if (!strs[x])
-				return (NULL);
-			count = 0;
-			x++;
-		}
-		i++;
+		while (*str && *str != c)
+			str++;
 	}
-	return (strs);
+	return (count);
 }
 
-static char	**ft_cpy_strs(char **strs, const char *s, char c)
+static size_t	word_size(const char **ptr, char c)
 {
-	int	i;
-	int	x;
-	int	y;
+	size_t	i;
 
+	while (**ptr && **ptr == c)
+		(*ptr)++;
 	i = 0;
-	x = 0;
-	y = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-			strs[x][y++] = s[i];
-		if (s[i] != c && s[i + 1] == '\0')
-			strs[x][y] = '\0';
-		if (s[i] == c && i > 0 && s[i - 1] != c)
-		{
-			strs[x][y] = '\0';
-			x++;
-			y = 0;
-		}
+	while ((*ptr)[i] && (*ptr)[i] != c)
 		i++;
-	}
-	return (strs);
+	return (i);
 }
 
-static char	**ft_merror(char **strs)
+static void	free_split(char **result, int i)
 {
-	int	i;
-
-	i = 0;
-	while (strs[i])
+	if (!result[i])
 	{
-		free(strs[i]);
-		strs[i] = NULL;
-		i++;
+		while (--i)
+			free(result[i]);
+		free(result);
 	}
-	free(strs);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		wordcount;
+	char		**result;
+	int			size;
+	int			j;
+	int			i;
 
-	if (!s)
-	{
-		strs = malloc(sizeof(char) * 1);
-		if (!strs)
-			return (NULL);
-		*strs = NULL;
-		return (strs);
-	}
-	wordcount = ft_count_words(s, c);
-	strs = malloc(sizeof(*strs) * (wordcount + 1));
-	if (!strs)
+	i = 0;
+	size = word_count(s, c);
+	result = (char **)malloc((size + 1) * sizeof(char *));
+	if (!result)
 		return (NULL);
-	if (ft_malloc_strs(strs, s, c))
+	while (i < size)
 	{
-		ft_cpy_strs(strs, s, c);
-		strs[wordcount] = NULL;
+		result[i] = (char *)malloc(word_size(&s, c) + 1);
+		free_split(result, i);
+		j = 0;
+		while (*s && *s != c)
+			result[i][j++] = *(s++);
+		result[i++][j] = '\0';
 	}
-	else
-		strs = ft_merror(strs);
-	return (strs);
+	result[i] = NULL;
+	return (result);
 }

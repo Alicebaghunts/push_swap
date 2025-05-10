@@ -11,27 +11,26 @@
 /* ************************************************************************** */
 #include "push_swap_bonus.h"
 
-void	checking_argument(char *arg)
+int	checking_argument(char *arg)
 {
-	int		num;
+	long	num;
 	char	*itoa_num;
 
 	num = 0;
 	if (arg[0] == '\0')
-		error_handling();
+		return (1);
 	if ((arg[0] == '0') && (arg[1] == '\0'))
-		return ;
-	num = ft_atoi(arg);
-	itoa_num = ft_itoa(num);
+		return (0);
+	num = ft_atol(arg);
+	if (num > INT_MAX || num < INT_MIN)
+		return (1);
+	itoa_num = ft_itoa((int)num);
 	if (ft_strcmp(arg, itoa_num) != 0)
-	{
-		free(itoa_num);
-		error_handling();
-	}
-	free(itoa_num);
+		return (free(itoa_num), 1);
+	return (free(itoa_num), 0);
 }
 
-int	checking_list(t_stack **list, int content)
+void	checking_list(t_stack **list, int content)
 {
 	t_stack	*tmp;
 
@@ -45,7 +44,6 @@ int	checking_list(t_stack **list, int content)
 		}
 		tmp = tmp->next;
 	}
-	return (1);
 }
 
 t_stack	*add_and_check_dublicate(t_stack *head, char *str)
@@ -53,18 +51,13 @@ t_stack	*add_and_check_dublicate(t_stack *head, char *str)
 	char	**arr;
 	int		i;
 
+	i = 0;
 	arr = ft_split(str, ' ');
 	if (arr == NULL)
 		error_handling();
-	i = 0;
 	while (arr[i] != NULL)
 	{
-		if (checking_list(&head, ft_atoi(arr[i])) == 0)
-		{
-			ft_free_matrix(arr);
-			ft_free_stack(head);
-			error_handling();
-		}
+		checking_list(&head, ft_atoi(arr[i]));
 		ft_add_back_list(&head, ft_atoi(arr[i]));
 		i++;
 	}

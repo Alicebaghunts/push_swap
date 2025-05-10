@@ -33,23 +33,23 @@ CYAN			= \033[36m
 YELLOW			= \033[38;2;255;239;0m
 PINK			= \033[38;2;255;105;180m
 RED				= \033[31m
-
+VIOLET			= \033[38;2;138;43;226m
 
 %.o : %.c $(HEADER) Makefile
-	@echo "${CYAN}🔨 Compiling $<${RESET}"
+	@echo "${CYAN}Compiling $<${RESET}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(LIBC) $(NAME) $(OBJS)
-	@echo "${YELLOW}Libft compiled ✨ ${RESET}"
+	@echo "${PINK}Libft compiled${RESET}"
 
 clean:
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "${RED}🧹 Removing ${NAME} ${RESET}"
+	@echo "${VIOLET}Removing ${NAME} ${RESET}"
 	@$(RM) $(NAME)
 
 re: fclean all

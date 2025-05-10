@@ -14,7 +14,7 @@
 
 void	error_handling(void)
 {
-	printf("Error\n");
+	ft_putstr("Error\n");
 	exit(ERROR_INVALID_INPUT);
 }
 
@@ -45,8 +45,11 @@ int	push_swap(char *str)
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{
-		checking_argument(arr[i]);
-		i++;
+		if (checking_argument(arr[i++]) == 1)
+		{
+			ft_free_matrix(arr);
+			error_handling();
+		}
 	}
 	ft_free_matrix(arr);
 	return (1);

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	is_space(char *str)
 {
@@ -50,8 +51,11 @@ int	push_swap(char *str)
 	arr = ft_split(str, ' ');
 	while (arr[i] != NULL)
 	{
-		checking_argument(arr[i]);
-		i++;
+		if (checking_argument(arr[i++]) == 1)
+		{
+			ft_free_matrix(arr);
+			error_handling();
+		}
 	}
 	ft_free_matrix(arr);
 	return (1);

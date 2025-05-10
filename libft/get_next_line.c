@@ -94,7 +94,7 @@ char	*get_next_line(int fd)
 
 	curr_line = NULL;
 	if ((fd < 0) || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free (line), NULL);
 	ft_get_line(fd, &line);
 	if (!line || (line && !*line))
 	{
@@ -112,19 +112,3 @@ char	*get_next_line(int fd)
 	line = future_next_line(line);
 	return (curr_line);
 }
-
-// #include <stdio.h>
-// int main(){
-// 	int		fd = 0;
-// 	char	*str;
-// 	int i = 0;
-
-// 	fd = open("foo.txt", O_RDWR);
-// 	while (i < 5)
-// 	{
-// 		str = get_next_line(fd);
-// 		printf("%s", str);
-// 		free(str);
-// 		i++;
-// 	}
-// }
