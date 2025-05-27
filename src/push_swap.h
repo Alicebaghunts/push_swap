@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-06 13:48:06 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-06 13:48:06 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/06 13:48:06 by alisharu          #+#    #+#             */
+/*   Updated: 2025/05/27 19:32:37 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	init_indexs_list(t_stack **list, int *arr, int size);
 void	make_butterfly(t_stack **a, t_stack **b, int n);
 void	pa(t_stack **src, t_stack **dest);
 void	pb(t_stack **src, t_stack **dest);
-void	print_list(t_stack **list);
 void	ra(t_stack **list);
 void	rb(t_stack **list);
 void	rr(t_stack **a, t_stack **b);
@@ -58,13 +57,11 @@ void	ss(t_stack **a, t_stack **b);
 void	rotate_to_max(t_stack **a, int i, int size);
 void	rotate_to_max_b(t_stack **b, int i, int size);
 void	sort_three(t_stack **list);
-void	print_stack(t_stack **list);
 void	sort_two(t_stack **list);
 void	sort_four(t_stack **a, t_stack **b);
 void	sort_five(t_stack **a, t_stack **b);
 void	min_pos_rev(t_stack **list);
-void	pxik(t_stack **a, t_stack **b, int size);
-void	print_index(t_stack **list);
+void	handle_butterfly(t_stack **a, t_stack **b, int size);
 t_stack	*ft_last_node(t_stack *lst);
 t_stack	*ft_new_list(int content);
 t_stack	*add_and_check_dublicate(t_stack *head, char *str);

@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_oparation.c                                  :+:      :+:    :+:   */
+/*   array.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <alisharu@student.42.fr>          #+#  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-27 13:35:10 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-27 13:35:10 by alisharu         ###   ########.fr       */
+/*   Created: 2025/03/27 13:35:10 by alisharu          #+#    #+#             */
+/*   Updated: 2025/05/27 19:34:42 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*list_to_arr(t_stack **list)
@@ -81,7 +82,7 @@ int	optimaizer(int size)
 	return (sqrt + log - 1);
 }
 
-void	pxik(t_stack **a, t_stack **b, int size)
+void	handle_butterfly(t_stack **a, t_stack **b, int size)
 {
 	while (*b != NULL)
 	{

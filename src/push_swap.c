@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-06 13:48:00 by alisharu          #+#    #+#             */
-/*   Updated: 2025-04-06 13:48:00 by alisharu         ###   ########.fr       */
+/*   Created: 2025/04/06 13:48:00 by alisharu          #+#    #+#             */
+/*   Updated: 2025/05/27 19:42:16 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ int	main(int argc, char **argv)
 	arr = list_to_arr(&a);
 	init_indexs_list(&a, arr, size);
 	sort(&a, &b, size);
-	pxik(&a, &b, size);
+	handle_butterfly(&a, &b, size);
 	return (ft_free_stack(b), ft_free_stack(a), 0);
 }

@@ -1,38 +1,36 @@
 MAKEFLAGS		= --no-print-directory
-
 NAME			=	push_swap
 NAME_BONUS		=	checker
 CC				=	cc
 RM 				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -Iincludes 
-LIBFT			= -L./libft -lft
+LIBFT			=	-L./libft -lft
 OBJS_DIR		=	objs
 SRCS_DIR		=	src
 BONUS_DIR		=	src_bonus
 
-SRCS			=	$(SRCS_DIR)/push_swap.c\
-				$(SRCS_DIR)/push.c\
-				$(SRCS_DIR)/free.c\
-				$(SRCS_DIR)/checks.c\
-				$(SRCS_DIR)/sort.c\
-				$(SRCS_DIR)/butterfly.c\
-				$(SRCS_DIR)/rotate.c\
-				$(SRCS_DIR)/reverse.c\
-				$(SRCS_DIR)/swap.c\
-				$(SRCS_DIR)/utils.c\
-				$(SRCS_DIR)/array.c\
-				$(SRCS_DIR)/print.c
+SRCS			=	$(SRCS_DIR)/push_swap.c \
+				$(SRCS_DIR)/push.c \
+				$(SRCS_DIR)/free.c \
+				$(SRCS_DIR)/checks.c \
+				$(SRCS_DIR)/sort.c \
+				$(SRCS_DIR)/butterfly.c \
+				$(SRCS_DIR)/rotate.c \
+				$(SRCS_DIR)/reverse.c \
+				$(SRCS_DIR)/swap.c \
+				$(SRCS_DIR)/utils.c \
+				$(SRCS_DIR)/array.c \
 
-SRC_BONUS		=	$(BONUS_DIR)/push_swap_bonus.c\
-				$(BONUS_DIR)/push_bonus.c\
-				$(BONUS_DIR)/free_bonus.c\
-				$(BONUS_DIR)/checks_bonus.c\
-				$(BONUS_DIR)/rotate_bonus.c\
-				$(BONUS_DIR)/reverse_bonus.c\
-				$(BONUS_DIR)/swap_bonus.c\
-				$(BONUS_DIR)/utils_bonus.c\
-				$(BONUS_DIR)/array_bonus.c\
-				$(BONUS_DIR)/main_bonus.c\
+SRC_BONUS		=	$(BONUS_DIR)/push_swap_bonus.c \
+				$(BONUS_DIR)/push_bonus.c \
+				$(BONUS_DIR)/free_bonus.c \
+				$(BONUS_DIR)/checks_bonus.c \
+				$(BONUS_DIR)/rotate_bonus.c \
+				$(BONUS_DIR)/reverse_bonus.c \
+				$(BONUS_DIR)/swap_bonus.c \
+				$(BONUS_DIR)/utils_bonus.c \
+				$(BONUS_DIR)/array_bonus.c \
+				$(BONUS_DIR)/main_bonus.c \
 
 OBJS			=	$(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
 OBJS_BONUS		=	$(patsubst $(BONUS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRC_BONUS))

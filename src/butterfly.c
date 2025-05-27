@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   butterfly.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alisharu <marvin@42.fr>                    #+#  +:+       +#+        */
+/*   By: alisharu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-30 14:52:45 by alisharu          #+#    #+#             */
-/*   Updated: 2025-03-30 14:52:45 by alisharu         ###   ########.fr       */
+/*   Created: 2025/03/30 14:52:45 by alisharu          #+#    #+#             */
+/*   Updated: 2025/05/27 19:34:36 by alisharu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rotate_to_max(t_stack **a, int i, int size)
